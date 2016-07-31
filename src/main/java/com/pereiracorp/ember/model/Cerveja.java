@@ -1,14 +1,18 @@
 package com.pereiracorp.ember.model;
 
+import javax.validation.constraints.Size;
+
 import org.hibernate.validator.constraints.NotBlank;
 
 public class Cerveja {
 	
-	@NotBlank
+	@NotBlank(message = "SKU é obrigatório")
 	private String sku;
 	
+	@NotBlank(message = "Nome é obrigatório")
 	private String nome;
 	
+	@Size(min = 1, max = 50, message = "O tamanho da descrição deve estar entre 1 e 50")
 	private String descricao;
 	
 	public String getDescricao() {
